@@ -1,2 +1,0 @@
-# LearnMutualHelp
-Software engineering work
