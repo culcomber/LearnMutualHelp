@@ -1,9 +1,0 @@
-extends index
-
-block content
-  div.content.main
-    div.content-left
-      - for(var i in problems){
-      - var problem = problems[i]
-      include components/problem-comment
-      -}
