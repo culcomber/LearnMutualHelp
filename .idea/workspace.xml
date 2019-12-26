@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="f1a0eaac-d86c-4f86-8988-98548e19fd12" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ProjectId" id="1UOArNCU8JLomOcRqS3WpFrClrw" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../nodeforum-master" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\WebProject\NodeProject\Blog-Node-master\views\components" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="Unnamed" type="NodeJSConfigurationType" nameIsGenerated="true" working-dir="$PROJECT_DIR$">
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="f1a0eaac-d86c-4f86-8988-98548e19fd12" name="Default Changelist" comment="" />
+      <created>1575217466114</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1575217466114</updated>
+      <workItem from="1575217471334" duration="1904000" />
+      <workItem from="1575254737144" duration="4116000" />
+      <workItem from="1575302497146" duration="1240000" />
+      <workItem from="1575372478325" duration="2869000" />
+      <workItem from="1575529720128" duration="9433000" />
+      <workItem from="1575598046898" duration="4978000" />
+      <workItem from="1576203186176" duration="2514000" />
+      <workItem from="1576287906768" duration="3366000" />
+      <workItem from="1576475996745" duration="601000" />
+      <workItem from="1576672151764" duration="10000" />
+      <workItem from="1576678352964" duration="5000" />
+      <workItem from="1576681447487" duration="12000" />
+      <workItem from="1576825334931" duration="61000" />
+      <workItem from="1576825475816" duration="389000" />
+      <workItem from="1576826418274" duration="8067000" />
+      <workItem from="1576895115954" duration="8946000" />
+      <workItem from="1577065205755" duration="6129000" />
+      <workItem from="1577077402338" duration="10515000" />
+      <workItem from="1577175716995" duration="2357000" />
+      <workItem from="1577186808449" duration="16000" />
+      <workItem from="1577255368931" duration="2289000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="223" y="67" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1576914688295">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="223" y="67" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1576914688295" />
+    <state x="549" y="167" key="FileChooserDialogImpl" timestamp="1577186844656">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="549" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1577186844656" />
+    <state width="1515" height="210" key="GridCell.Tab.0.bottom" timestamp="1576914696861">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1515" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1576914696861" />
+    <state width="1515" height="210" key="GridCell.Tab.0.center" timestamp="1576914696861">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1515" height="210" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1576914696861" />
+    <state width="1515" height="210" key="GridCell.Tab.0.left" timestamp="1576914696861">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1515" height="210" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1576914696861" />
+    <state width="1515" height="210" key="GridCell.Tab.0.right" timestamp="1576914696861">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1515" height="210" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1576914696861" />
+    <state x="272" y="57" key="SettingsEditor" timestamp="1577186824369">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="272" y="57" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1577186824369" />
+  </component>
+</project>

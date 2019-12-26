@@ -1,82 +1,94 @@
-# Software Engineering Work
+# hello blog
 
-## RealWorld Example App
+## 目录结构
 
-> Vue.js codebase containing real world examples (CRUD, auth, advanced patterns, etc) that adheres to the [RealWorld](https://github.com/gothinkster/realworld) spec and API.
+遵循了 MVC（模型(model)－视图(view)－控制器(controller/route)） 的开发模式。
 
-Project demo is available at https://vue-vuex-realworld.netlify.com/#/
+- config: 端口号,数据库配置信息
+- coverage: 测试结果存放
+- lib: 数据库模型
+- logs: 日志
+- middlewares: 检测是否登陆
+- models: 存放操作数据库的文件
+- public: 存放静态文件，如样式、图片等
+- routes: 存放路由文件
+  - index 路由跳转
+- test: 测试文件
+- views: 存放模板文件
+- index.js: 程序主文件
+- package.json: 存储项目名、描述、作者、依赖等等信息
+- .gitignore: 忽略相关文件 --需要在不同文件夹下同时建立
+- .eslintrc.json: ESLint配置信息
 
-This codebase was created to demonstrate a fully fledged fullstack application built with **Vue.js** including CRUD operations, authentication, routing, pagination, and more.
+## 安装依赖模块
 
-We've gone to great lengths to adhere to the **Vue.js** community styleguides & best practices.
-
-For more information on how to this works with other frontends/backends, head over to the [RealWorld](https://github.com/gothinkster/realworld) repo.
-
-## Getting started
-
-Before contributing please read the following:
-
-1. [RealWorld guidelines](https://github.com/gothinkster/realworld/tree/master/spec) for implementing a new framework,
-2. [RealWorld frontend instructions](https://github.com/gothinkster/realworld-starter-kit/blob/master/FRONTEND_INSTRUCTIONS.md)
-3. [Realworld API endpoints](https://github.com/gothinkster/realworld/tree/master/api)
-4. [Vue.js styleguide](https://vuejs.org/v2/style-guide/index.html). Priority A and B categories must be respected.
-5. [Editorconfig setup](https://editorconfig.org/#download). Most of the common editors support editorconfig by default (check the editorconfig download link for your ide), but editorconfig npm package have to installed globally for it to work,
-
-```bash
-# install editorconfig globally
-> npm install -g editorconfig
+```
+- npm i config-lite connect-flash connect-mongo ejs express express-session marked moment mongolass objectid-to-timestamp sha1 winston express-winston express-formidable --save
 ```
 
-The stack is built using [vue-cli webpack](https://github.com/vuejs-templates/webpack) so to get started all you have to do is:
+对应模块的用处：
 
-``` bash
-# install dependencies
-> yarn install
-# serve with hot reload at localhost:8080
-> yarn serve
+- //body-parser
+- //cookie-parser：Express的中间件，用来实现cookie的解析，是官方脚手架内置的中间件之一
+- //morgan
+- //requirejs：application
+
+- config-lite: 读取配置文件
+- connect-flash: 页面通知的中间件，基于 session 实现
+- connect-mongo: 将 session 存储于 mongodb，结合 express-session 使用
+- jade：views渲染
+- //ejs: 模板
+- //cjs：collect
+- //debug：collect 用于测试
+- express: web 框架
+- express-formidable: 接收表单及文件上传的中间件
+- express-session: session 中间件
+- express-winston: express 的 winston 日志中间件
+- marked: markdown 解析
+- moment: 时间格式化
+- mongolass: mongodb 驱动
+- objectid-to-timestamp: 根据 ObjectId 生成时间戳
+- qiniu：七牛云上传图片
+- sha1: sha1 加密，用于密码加密
+- winston: 日志
+
+### ESLint
+
+```
+#全局安装 eslint：
+npm i eslint -g
+#运行：
+eslint --init
+#初始化 eslint 配置，依次选择：
+-> Use a popular style guide
+-> Standard
+-> JSON
+
+注意：如果 Windows 用户使用其他命令行工具无法上下切换选项，切换回 cmd。
 ```
 
-Other commands available are:
+eslint 会创建一个 .eslintrc.json 的配置文件，同时自动安装并添加相关的模块到 devDependencies。这里我们使用 Standard 规范，其主要特点是不加分号。
 
-``` bash
-# build for production with minification
-yarn run build
+## 功能及路由设计
 
-# run unit tests
-yarn test
-```
-
-## To know
-
-Current arbitrary choices are:
-
-- Vuex modules for store
-- Vue-axios for ajax requests
-- 'rwv' as prefix for components
-
-These can be changed when the contributors reach a consensus.
-
-## FAQ
-
-<p><details>
-  <summary><b>Where can I find the service worker file?</b></summary>
-
-  The service worker file is generated automatically. The implementation can be found under [`src/registerServiceWorker.js`](https://github.com/gothinkster/vue-realworld-example-app/blob/eeaeb34fa440d00cd400545301ea203bd2a59284/src/registerServiceWorker.js). You can find the dependencies implementation in this repo: [yyx990803/register-service-worker](https://github.com/yyx990803/register-service-worker#readme).
-
-  Also, Google provided a good documentation on how to register a service worker: https://developers.google.com/web/fundamentals/primers/service-workers/registration
-</details></p>
-
-<p><details>
-  <summary><b>Vue.js Function API / Migration to Vue.js 3</b></summary>
-
-  Related resources:
-
-  - [Vue.js Function API RFC](https://github.com/vuejs/rfcs/blob/function-apis/active-rfcs/0000-function-api.md)
-  - [`vue-function-api` plugin](https://github.com/vuejs/vue-function-api)
-
-  Vue.js 3 will likely introduce breaking changes on how Vue.js applications will look like. For example, the Vue.js Function API might be introduced. This would cause a lot of our components to change in the overall structure. The changes would be minimal though. With the `vue-function-api` plugin, these changes could be applied already. The problem is that multiple integrations are not working with the plugin. There are intentions to make this work, but for the time being, we should rather focus on different areas. If you still want to be experimental with it, we are happy to get a Pull Request with some experimental feature implementations.
-</details></p>
-
-## Connect
-
-Join us on [Discord](https://discord.gg/NE2jNmg)
+1.注册
+    - 注册页：GET /signup
+    - 注册（包含上传头像）：POST /signup
+2.登录
+    - 登录页：GET /signin
+    - 登录：POST /signin
+3.登出：GET /signout
+4.查看文章
+    - 主页：GET /posts
+    - 个人主页：GET /posts?author=xxx
+    - 查看一篇文章（包含留言）：GET /posts/:postId
+5.发表文章
+    - 发表文章页：GET /posts/create
+    - 发表文章：POST /posts/create
+6.修改文章
+    - 修改文章页：GET /posts/:postId/edit
+    - 修改文章：POST /posts/:postId/edit
+7.删除文章：GET /posts/:postId/remove
+8.留言
+    - 创建留言：POST /comments
+    - 删除留言：GET /comments/:commentId/remove

@@ -1,0 +1,73 @@
+div.ui.items
+  div.item
+    div.content
+      div.meta
+        -if (problem.author.avatar.substr(0,5) === 'https')
+          p.writer-front
+            img(src='#{problem.author.avatar}')
+        -else
+          p.writer-front
+            img(src='/img/#{problem.author.avatar}')
+        p.writer
+          a(href='/user?author=#{problem.author._id}',data-title='#{problem.author.name}',data-content='#{problem.author.bio}')  #{problem.author.name}
+          span.tag #{problem.created_at}
+      a.header.problem-header.articleProblem-header(href='/articleProblem?problemId=#{problem._id}') #{problem.title}
+      div.descriptions.articleProblem!=problem.content
+      div.extra
+        if user&&problem.author._id&&user._id.toString()===problem.author._id.toString()
+          div.mini.ui.floated.buttons
+            a.ui.button(href='/articleProblem/edit?problemId=#{problem._id}') 编辑
+            // a.or
+            a.ui.positive.button(href='/articleProblem/remove?problemId=#{problem._id}') 删除
+        if user
+          button.mini.ui.button.favourite(user='#{user._id}',problem='#{problem._id}')
+            -var status = false
+            -var favourite = problem.favourite
+            -for(var j in favourite){
+                -count++
+                if user._id === favourite[j]
+                -status = true
+            -}
+            if status
+              i.thumbs.outline.up.red.icon
+            else
+              i.thumbs.outline.up.icon
+            span #{problem.favourite_count}
+          button.mini.ui.primary.button.addcollect(author='#{user._id}',problem='#{problem._id}')
+            -var flag = false
+            -var check_fork = collections
+            -var j = 0
+            -for(;j<check_fork.length;j++){
+              if problem._id == check_fork[j]
+                - flag = true
+                - break
+            -}
+            if flag
+              span 已收藏
+            else
+              span 收藏
+if user
+  div.ui.comments
+    h3.ui.dividing.header 回答
+    if problem.answers && problem.answers.length>0
+    - for answer in answers
+        div.comment
+          a.avatar
+            if (user.avatar.substr(0,5) === 'https')
+              img(src='#{user.avatar}')
+            else
+              img(src='/img/#{user.avatar}')
+          div.content.comment-text
+            a.author(href='/user?author=#{problem.author._id}',data-title='#{problem.author.name}',data-content='#{problem.author.bio}')  #{problem.author.name}
+            div.metadata
+              span.date #{answer.created_at}
+            div.text!=answer.content
+            div.actions
+              a.replay 回复
+              if user&&answer.author._id&&user._id.toString()===answer.author._id.toString()
+                a.reply(href='/articleProblem/rmAnswer?answerId=#{answer._id}') 删除
+
+  form.ui.reply.form(method='post',action='/articleProblem/addAnswer?problemId=#{problem._id}',enctype='multipart/form-data')
+    div.field
+      textarea(name='content')
+    input.mini.ui.blue.button(type='submit',value='回答')

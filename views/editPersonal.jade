@@ -1,0 +1,25 @@
+extends index
+
+block content
+  div.content
+    div.signup_form
+        include components/flash
+        form.ui.form.segment(method='POST',enctype='multipart/form-data',action='/editPersonal?author=#')
+          //- div.field.required
+          //-   lable 用户名
+          //-   input(placeholder='用户名',type='text',name='name')
+          //- div.field.required
+          //-   lable 密码
+          //-   input(placeholder='密码',type='password',name='password')
+          div.field.required
+            lable 个人简介
+            textarea(name='bio',rows='5',v-model='user.bio')
+          input.signup_button(type='submit',value='修改信息')
+
+          form.ui.reply.form(method='post',action='/article/addComment?postId=#{post._id}',enctype='multipart/form-data')
+          div.field
+            textarea(name='content')
+          input.mini.ui.blue.button(type='submit',value='留言')
+
+          // http://localhost:8888/article?postId=5dfc8fa06ec2944ba4eebbec
+          // http://localhost:8888/user?author=5de64e6ac58969092835cb59

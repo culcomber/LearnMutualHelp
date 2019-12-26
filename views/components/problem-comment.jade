@@ -1,0 +1,50 @@
+div.ui.items
+  div.item
+    div.content.self-content
+      div.meta
+        -if (problem.author.avatar.substr(0,5) === 'https')
+          p.writer-front
+            img(src='#{problem.author.avatar}')
+        -else
+          p.writer-front
+            img(src='/img/#{problem.author.avatar}')
+        p.writer
+          a(href='/user?author=#{problem.author._id}',data-title='#{problem.author.name}',data-content='#{problem.author.bio}')  #{problem.author.name}
+          span.tag #{problem.created_at}
+      a.header.problem-header(href='/articleProblem?problemId=#{problem._id}') #{problem.title}
+      div.extra
+        div.mini.ui.buttons
+          button.mini.ui.button
+            i.unhide.green.icon
+            span #{problem.pv}
+          // div.or
+          button.mini.ui.button
+            i.talk.outline.icon
+            span #{problem.answersCount}
+        if user
+          button.mini.ui.button.favourite(user='#{user._id}',problem='#{problem._id}')
+            -var status = false
+            -var favourite = problem.favourite
+            -for(var j in favourite){
+                -count++
+                if user._id === favourite[j]
+                -status = true
+            -}
+            if status
+              i.thumbs.outline.up.red.icon
+            else
+              i.thumbs.outline.up.icon
+            span #{problem.favourite_count}
+          button.mini.ui.primary.button.addcollect(author='#{user._id}',problem='#{problem._id}')
+            -var flag = false
+            -var check_fork = collections
+            -var j = 0
+            -for(;j<check_fork.length;j++){
+              if problem._id == check_fork[j]
+                - flag = true
+                - break
+            -}
+            if flag
+              span 已收藏
+            else
+              span 收藏

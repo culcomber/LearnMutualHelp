@@ -1,0 +1,26 @@
+extends index
+
+block content
+  div.content.main     
+    if user
+      div.ui.comments
+        if problem.answers && problem.answers.length>0
+        - for answer in answers
+            div.comment
+              a.header.problem-header.articleProblem-header(href='/articleProblem?problemId=#{answer.problemId}') #{answer.title}
+              a.avatar
+                if (user.avatar.substr(0,5) === 'https')
+                  img(src='#{user.avatar}')
+                else
+                  img(src='/img/#{user.avatar}')
+              div.content.comment-text
+                a.author(href='/user?author=#{answer.author._id}',data-title='#{answer.author.name}',data-content='#{answer.author.bio}')  #{answer.author.name}
+                div.metadata
+                  span.date #{answer.created_at}
+                div.text!=answer.content
+                div.actions
+                  a.replay 回复
+                  if user&&answer.author._id&&user._id.toString()===answer.author._id.toString()
+                    a.reply(href='/articleProblem/rmAnswer?answerId=#{answer._id}') 删除
+      -}
+
