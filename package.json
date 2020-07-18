@@ -9,7 +9,7 @@
     "eventproxy": "^0.3.4",
     "express": "^4.13.4",
     "express-session": "^1.13.0",
-    "lodash": "^4.12.0",
+    "lodash": "^4.17.19",
     "moment": "^2.13.0",
     "mongoose": "^4.4.16",
     "node-uuid": "^1.4.7",
